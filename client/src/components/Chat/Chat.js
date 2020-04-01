@@ -40,6 +40,10 @@ const Chat = ({ location }) => {
     socket.on("message", message => {
       setMessages([...messages, message]);
     });
+
+    socket.on("roomData", ({ users }) => {
+      setUsers(users);
+    });
   }, [messages]);
 
   // function for sending messages
